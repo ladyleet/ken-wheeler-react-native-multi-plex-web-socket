@@ -16,6 +16,12 @@ export default class App extends React.Component {
   
   _kenMap = new Map();
 
+  _sendKenStream() {
+    this._socket.next(JSON.stringify({
+      type: 'sub'
+    }));
+  }
+
   componentDidMount() {
     this._subscription.add(
       this._socket.pipe(
@@ -43,12 +49,6 @@ export default class App extends React.Component {
     this._subscription.unsubscribe();
   }
 
-  _sendKenStream() {
-    this._socket.next(JSON.stringify({
-      type: 'sub'
-    }));
-  }
-
   render() {
     
     const { randomKenX, randomKenY } = this.state;
@@ -67,7 +67,7 @@ export default class App extends React.Component {
         </Image>)}
         <Button 
           onPress={() => this._sendKenStream()}
-          title="add"
+          title="add a ken bobble"
           ></Button>
       </View>
     );
