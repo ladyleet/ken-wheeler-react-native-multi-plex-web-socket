@@ -51,8 +51,6 @@ export default class App extends React.Component {
 
   render() {
     
-    const { randomKenX, randomKenY } = this.state;
-    
     return (
       <View style={styles.container}>
         <Text>Ken is multi-plexing!</Text>
